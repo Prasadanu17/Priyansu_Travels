@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import ThreeDAnimation from '../components/ui/ThreeDAnimation';
 
 const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY_HERE'; // ← Replace with your key from web3forms.com
 
@@ -76,6 +77,7 @@ export default function Contact() {
     <>
       {/* ── HERO ── */}
       <section className="bg-pt-deep pt-24 pb-12 px-4 text-center relative overflow-hidden">
+        <ThreeDAnimation className="hidden lg:block absolute right-6 top-14 w-56 h-56 opacity-75" />
         <div className="absolute inset-0 bg-dot-pattern bg-dot-sm pointer-events-none" />
         <div className="relative z-10 max-w-xl mx-auto">
           <span className="section-eyebrow">Get In Touch</span>

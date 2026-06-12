@@ -2,12 +2,19 @@ import { Star, Clock, Users, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function PackageCard({ pkg }) {
-  const { name, tagline, days, nights, minPax, price, badge, bgClass, rating, reviews, highlights, includes } = pkg;
+  const { name, tagline, days, nights, minPax, price, badge, bgClass, rating, reviews, highlights, includes, image } = pkg;
 
   return (
     <div className="group card-base overflow-hidden card-hover">
       {/* Hero image area */}
-      <div className={`h-36 bg-gradient-to-br ${bgClass} relative flex items-end p-4`}>
+      <div className={`h-36 relative flex items-end p-4 ${image ? 'bg-slate-950' : `bg-gradient-to-br ${bgClass}`}`}>
+        {image && (
+          <img
+            src={image}
+            alt={name}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
         {badge && (
           <span className="absolute top-3 right-3 bg-pt-gold text-pt-deep text-[10px] font-medium px-2.5 py-1 rounded">
             {badge}

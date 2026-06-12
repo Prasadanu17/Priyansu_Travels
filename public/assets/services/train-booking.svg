@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1D354C" />
+      <stop offset="100%" stop-color="#213F5A" />
+    </linearGradient>
+  </defs>
+  <rect width="360" height="220" rx="24" fill="url(#bg)" />
+  <path d="M48 156 H312" stroke="#F9F0D9" stroke-width="16" stroke-linecap="round" />
+  <rect x="84" y="108" width="192" height="46" rx="12" fill="#F9F0D9" opacity="0.9" />
+  <rect x="110" y="122" width="44" height="18" rx="6" fill="#1D354C" />
+  <rect x="156" y="122" width="44" height="18" rx="6" fill="#1D354C" />
+  <rect x="202" y="122" width="44" height="18" rx="6" fill="#1D354C" />
+  <circle cx="118" cy="168" r="16" fill="#F9F0D9" />
+  <circle cx="242" cy="168" r="16" fill="#F9F0D9" />
+  <text x="180" y="210" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="16" fill="#E8E3D3" font-weight="600">Travel Booking</text>
+</svg>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { vehicles } from '../data/vehicles';
+import { vehicles } from '../../data/vehicles';
 
 export default function VehicleShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);

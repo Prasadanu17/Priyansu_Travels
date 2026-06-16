@@ -129,7 +129,7 @@ export const PACKAGES = [
   {
     id: 'puri',
     name: 'Puri & Konark',
-    tagline: 'Sacred shores and the sun temple's glory',
+    tagline: 'Sacred shores and the sun temples glory',
     days: 3, nights: 2,
     minPax: 2,
     price: 5499,
@@ -334,7 +334,7 @@ export const HERO_SLIDES = [
     tagline: 'Darjeeling Awaits',
     sub: 'Watch sunrise paint Kanchenjunga gold — 3D/2N package from ₹4,999',
     cta: 'View Darjeeling Package',
-    ctaLink: '/destinations',
+    ctaLink: '/travel',
   },
   {
     gradient: 'from-[#0a1f1a] via-[#0d3528] to-[#0a2a1e]',

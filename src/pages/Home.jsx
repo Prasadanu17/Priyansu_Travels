@@ -95,7 +95,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <Link to="/contact" className="btn-primary px-6 py-3">Book Now <ArrowRight size={15} /></Link>
-              <Link to="/destinations" className="btn-outline px-6 py-3">Explore Packages</Link>
+              <Link to="/travel" className="btn-outline px-6 py-3">Travel Guide</Link>
               <Link to="/services" className="btn-outline px-6 py-3">Our Services</Link>
             </div>
             {/* Stats */}
@@ -261,8 +261,8 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-8 reveal">
-            <Link to="/destinations" className="btn-dark">
-              View All Destinations <ArrowRight size={15} />
+            <Link to="/travel" className="btn-dark">
+              View Sikkim Travel Guide <ArrowRight size={15} />
             </Link>
           </div>
         </div>

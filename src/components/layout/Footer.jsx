@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react';
+import logo from '../../assets/logo.png';
 
 const footerLinks = {
   'Quick Links': [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
     { to: '/services', label: 'Services' },
-    { to: '/destinations', label: 'Destinations' },
+    { to: '/travel', label: 'Travel Guide' },
     { to: '/contact', label: 'Contact' },
   ],
   Services: [
@@ -26,7 +27,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-white/8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <p className="font-display text-xl text-pt-gold mb-3">Priyansu Travels</p>
+            <Link to="/" className="inline-block mb-3">
+              <img src={logo} alt="Priyansu Travels" className="h-12 w-auto object-contain" />
+            </Link>
             <p className="text-xs leading-relaxed text-white/45 mb-4">
               Your trusted travel partner from West Bengal. Premium experiences, transparent pricing, and unforgettable journeys since 2016.
             </p>

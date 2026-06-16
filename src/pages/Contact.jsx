@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle2, AlertCircle } 
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import ThreeDAnimation from '../components/ui/ThreeDAnimation';
 
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY_HERE'; // ← Replace with your key from web3forms.com
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
 const serviceOptions = [
   'Car Rental',

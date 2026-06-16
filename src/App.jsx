@@ -6,7 +6,7 @@ import MobileBookingBar from './components/ui/MobileBookingBar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-import Destinations from './pages/Destinations';
+import Travel from './pages/Travel';
 import Contact from './pages/Contact';
 
 function ScrollToTop() {
@@ -25,7 +25,8 @@ export default function App() {
           <Route path="/"             element={<Home />} />
           <Route path="/about"        element={<About />} />
           <Route path="/services"     element={<Services />} />
-          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/travel"       element={<Travel />} />
+          <Route path="/travel/:slug" element={<Travel />} />
           <Route path="/contact"      element={<Contact />} />
         </Routes>
       </main>

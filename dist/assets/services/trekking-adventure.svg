@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#46617C" />
+      <stop offset="100%" stop-color="#1E2B3D" />
+    </linearGradient>
+    <linearGradient id="mount" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#8FA7C4" />
+      <stop offset="100%" stop-color="#395B76" />
+    </linearGradient>
+  </defs>
+  <rect width="360" height="220" rx="24" fill="url(#sky)" />
+  <path d="M0 180 L90 100 L180 144 L270 86 L360 140 L360 220 L0 220 Z" fill="url(#mount)" />
+  <path d="M220 130 L250 100 L278 130" stroke="#F9F0D9" stroke-width="10" fill="none" stroke-linecap="round" />
+  <path d="M245 102 L245 155" stroke="#F9F0D9" stroke-width="10" />
+  <path d="M85 136 L115 100 L145 136" stroke="#F9F0D9" stroke-width="10" fill="none" stroke-linecap="round" />
+  <text x="180" y="210" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="16" fill="#E8E3D3" font-weight="600">Trekking & Adventure</text>
+</svg>

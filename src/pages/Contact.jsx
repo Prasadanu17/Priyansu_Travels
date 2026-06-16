@@ -18,9 +18,10 @@ const serviceOptions = [
 ];
 
 const contactDetails = [
-  { icon: Phone,   label: 'Phone / WhatsApp', value: '+91 XXXXX XXXXX',           href: 'tel:+91XXXXXXXXXX' },
-  { icon: Mail,    label: 'Email',             value: 'info@priyansu.in',           href: 'mailto:info@priyansu.in' },
-  { icon: MapPin,  label: 'Office',            value: 'Kolkata, West Bengal',       href: null },
+  { icon: Phone,   label: 'Call Us',           value: '+91 73640 63680',           href: 'tel:+917364063680' },
+  { icon: MessageCircle, label: 'WhatsApp',      value: '+91 96411 35045',           href: 'https://wa.me/919641135045' },
+  { icon: Mail,    label: 'Email',             value: 'priyansutourtavels@gmail.com', href: 'mailto:priyansutourtavels@gmail.com' },
+  { icon: MapPin,  label: 'Office Address',    value: 'Tibet Road, Near Nayuma Television Office, Gangtok, Sikkim (Regd. No. 1624/DoT&CAV/E/24/TA)', href: null },
   { icon: Clock,   label: 'Business Hours',    value: 'Mon–Sun: 6:00 AM – 10:00 PM', href: null },
 ];
 
@@ -120,7 +121,7 @@ export default function Contact() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20book%20a%20trip%20with%20Priyansu%20Travels"
+              href="https://wa.me/919641135045?text=Hi%2C%20I%20want%20to%20book%20a%20trip%20with%20Priyansu%20Tours%20%26%20Travels"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#25D366] text-white text-sm font-medium py-3 px-5 rounded-xl w-full hover:bg-[#1ebe5a] transition-colors mb-5"
@@ -129,13 +130,18 @@ export default function Contact() {
               Chat on WhatsApp — Fastest Response
             </a>
 
-            {/* Map placeholder */}
-            <div className="bg-pt-cream rounded-2xl h-36 flex items-center justify-center border border-black/[0.07]">
-              <div className="text-center">
-                <MapPin size={22} className="text-pt-gold/50 mx-auto mb-1.5" />
-                <p className="text-[10px] text-pt-muted uppercase tracking-wider">Google Maps Embed Here</p>
-                <p className="text-[10px] text-pt-muted/70 mt-0.5">Kolkata, West Bengal</p>
-              </div>
+            {/* Map Embed */}
+            <div className="rounded-2xl h-56 overflow-hidden border border-black/[0.07] shadow-sm">
+              <iframe
+                src="https://maps.google.com/maps?q=Tibet%20Road%2C%20Near%20Nayuma%20Television%20Office%2C%20Gangtok%2C%20Sikkim&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                title="Priyansu Tours & Travels Office Location"
+                className="w-full h-full"
+              ></iframe>
             </div>
           </div>
 
@@ -175,7 +181,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="label-text">Phone *</label>
-                    <input name="phone" value={form.phone} onChange={handleChange} type="tel" className={`input-field ${errors.phone ? 'border-red-400' : ''}`} placeholder="+91 XXXXX XXXXX" />
+                    <input name="phone" value={form.phone} onChange={handleChange} type="tel" className={`input-field ${errors.phone ? 'border-red-400' : ''}`} placeholder="+91 96411 35045" />
                     {errors.phone && <p className="text-red-500 text-[10px] mt-1">{errors.phone}</p>}
                   </div>
                 </div>
@@ -225,7 +231,7 @@ export default function Contact() {
 
                 <p className="text-[10px] text-pt-muted text-center">
                   Or reach us instantly on{' '}
-                  <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="text-pt-gold">WhatsApp</a>
+                  <a href="https://wa.me/919641135045" target="_blank" rel="noopener noreferrer" className="text-pt-gold">WhatsApp</a>
                   {' '}— we reply in minutes.
                 </p>
               </form>

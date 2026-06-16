@@ -95,11 +95,11 @@ export default function Navbar() {
         {/* CTA + Hamburger */}
         <div className="flex items-center gap-3">
           <a
-            href="tel:+91XXXXXXXXXX"
+            href="tel:+917364063680"
             className="hidden md:flex items-center gap-1.5 text-pt-gold/80 hover:text-pt-gold text-xs transition-colors"
           >
             <Phone size={13} />
-            +91 XXXXX XXXXX
+            +91 73640 63680
           </a>
           <Link to="/contact" className="btn-primary text-xs px-4 py-2 hidden md:inline-flex">
             Book Now
@@ -180,8 +180,8 @@ export default function Navbar() {
           })}
           
           <div className="border-t border-white/10 mt-2 pt-3 flex flex-col gap-2">
-            <a href="tel:+91XXXXXXXXXX" className="flex items-center gap-2 text-pt-gold/80 text-sm px-4">
-              <Phone size={15} /> +91 XXXXX XXXXX
+            <a href="tel:+917364063680" className="flex items-center gap-2 text-pt-gold/80 text-sm px-4">
+              <Phone size={15} /> +91 73640 63680
             </a>
             <Link
               to="/contact"

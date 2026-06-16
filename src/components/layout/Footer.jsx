@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import logo from '../../assets/logo.png';
 
 const footerLinks = {
@@ -28,10 +28,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="inline-block mb-3">
-              <img src={logo} alt="Priyansu Travels" className="h-12 w-auto object-contain" />
+              <img src={logo} alt="Priyansu Tours & Travels" className="h-12 w-auto object-contain" />
             </Link>
             <p className="text-xs leading-relaxed text-white/45 mb-4">
-              Your trusted travel partner from West Bengal. Premium experiences, transparent pricing, and unforgettable journeys since 2016.
+              Your trusted travel partner for Sikkim and nearby destinations. Registered travel agency providing reliable, affordable, and hassle-free travel solutions. Regd. No. 1624/DoT&CAV/E/24/TA.
             </p>
             <div className="flex gap-2">
               {[
@@ -73,19 +73,25 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Phone size={13} className="text-pt-gold mt-0.5 shrink-0" />
-                <a href="tel:+91XXXXXXXXXX" className="text-xs text-white/45 hover:text-pt-gold transition-colors">
-                  +91 XXXXX XXXXX
+                <a href="tel:+917364063680" className="text-xs text-white/45 hover:text-pt-gold transition-colors">
+                  +91 73640 63680
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MessageCircle size={13} className="text-pt-gold mt-0.5 shrink-0" />
+                <a href="https://wa.me/919641135045" target="_blank" rel="noopener noreferrer" className="text-xs text-white/45 hover:text-pt-gold transition-colors">
+                  +91 96411 35045 (WhatsApp)
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail size={13} className="text-pt-gold mt-0.5 shrink-0" />
-                <a href="mailto:info@priyansu.in" className="text-xs text-white/45 hover:text-pt-gold transition-colors">
-                  info@priyansu.in
+                <a href="mailto:priyansutourtavels@gmail.com" className="text-xs text-white/45 hover:text-pt-gold transition-colors">
+                  priyansutourtavels@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={13} className="text-pt-gold mt-0.5 shrink-0" />
-                <span className="text-xs text-white/45">Kolkata, West Bengal, India</span>
+                <span className="text-xs text-white/45">Tibet Road, Near Nayuma Television Office, Gangtok, Sikkim</span>
               </li>
             </ul>
           </div>
@@ -93,7 +99,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between pt-5 gap-3">
-          <p className="text-[11px] text-white/30">© 2025 Priyansu Travels. All rights reserved.</p>
+          <p className="text-[11px] text-white/30">© 2026 Priyansu Tours & Travels. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="#" className="text-[11px] text-white/30 hover:text-pt-gold transition-colors">Privacy Policy</Link>
             <Link to="#" className="text-[11px] text-white/30 hover:text-pt-gold transition-colors">Terms of Service</Link>

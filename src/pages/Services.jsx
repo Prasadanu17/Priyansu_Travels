@@ -32,7 +32,7 @@ export default function Services() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link to="/contact" className="btn-primary">Get a Free Quote <ArrowRight size={15} /></Link>
             <a
-              href="https://wa.me/91XXXXXXXXXX"
+              href="https://wa.me/919641135045"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"

@@ -7,16 +7,16 @@ import ThreeDAnimation from '../components/ui/ThreeDAnimation';
 import { stats } from '../data/testimonials';
 
 const timeline = [
-  { year: '2016', title: 'Founded in Kolkata', desc: 'Started with 1 vehicle and a commitment to on-time, honest service for everyday travellers.' },
-  { year: '2018', title: 'Fleet Expansion',    desc: 'Grew to 10 vehicles; launched airport transfer and outstation services across Eastern India.' },
-  { year: '2020', title: 'Corporate Launch',   desc: 'Partnered with 15+ Kolkata companies for regular employee transport and MICE events.' },
-  { year: '2022', title: 'Tour Packages',      desc: 'Launched curated tour packages to Darjeeling, Sikkim, Puri and beyond — all-inclusive.' },
+  { year: '2016', title: 'Our Beginning',     desc: 'Started with 1 vehicle and a commitment to on-time, honest service for everyday travellers.' },
+  { year: '2018', title: 'Fleet Expansion',    desc: 'Grew to 10 vehicles; launched airport transfer and outstation services across the region.' },
+  { year: '2020', title: 'Corporate Launch',   desc: 'Partnered with local companies for regular employee transport and MICE events.' },
+  { year: '2022', title: 'Tour Packages',      desc: 'Launched curated tour packages to Sikkim, Darjeeling, Kalimpong, and Bhutan.' },
   { year: '2025', title: '500+ Happy Clients', desc: 'Surpassed 500 satisfied clients with a consistent 4.9-star average Google rating.' },
 ];
 
 const values = [
   { num: '01', title: 'Our Mission',  desc: 'To make premium travel accessible and stress-free for every family, professional, and traveller in Eastern India.' },
-  { num: '02', title: 'Our Vision',   desc: 'To become the most trusted regional travel brand in West Bengal — known for safety, punctuality, and heartfelt service.' },
+  { num: '02', title: 'Our Vision',   desc: 'To become the most trusted regional travel brand in Sikkim — known for safety, punctuality, and heartfelt service.' },
   { num: '03', title: 'Integrity',    desc: 'We never add hidden charges, never cut corners on safety, and never overpromise. Honest service, every time.' },
   { num: '04', title: 'Punctuality',  desc: 'Your time is precious. We track flights, plan routes, and arrive early — so you never miss a moment.' },
   { num: '05', title: 'Customer First', desc: 'Every decision we make starts with one question: is this best for our customer? The answer shapes everything.' },
@@ -35,7 +35,7 @@ export default function About() {
         <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-pt-gold/15 border border-pt-gold/35 rounded-full px-4 py-1.5 text-pt-gold-light text-xs tracking-widest uppercase mb-6">
-              Est. 2016 · Kolkata
+              Regd. No. 1624/DoT&CAV/E/24/TA · Gangtok, Sikkim
             </div>
             <h1 className="font-display text-5xl text-white leading-[1.15] mb-5">
               The Story Behind<br /><em className="text-pt-gold italic">Every Journey</em>
@@ -73,13 +73,13 @@ export default function About() {
             <span className="section-eyebrow">Our Story</span>
             <h2 className="font-display text-3xl text-pt-deep mb-5 leading-snug">From One Car to<br /><em className="text-pt-gold italic">500 Happy Journeys</em></h2>
             <p className="text-pt-muted text-sm leading-relaxed mb-4">
-              In 2016, Priyansu Travels started as a single car operated out of Kolkata — driven by one belief: that travellers in Eastern India deserve the same premium, stress-free experience available in bigger metro cities.
+              At Priyansu Tours & Travels, we specialize in providing reliable, affordable, and hassle-free travel solutions across Sikkim and nearby destinations. Whether you are planning a family vacation, honeymoon trip, adventure tour, or business travel, our experienced team ensures a comfortable and memorable journey from start to finish.
             </p>
             <p className="text-pt-muted text-sm leading-relaxed mb-4">
-              Word spread fast. Honest pricing, punctual arrivals, and genuine care for every passenger turned first-time customers into loyal clients and loyal clients into brand ambassadors.
+              We offer customized travel packages, hotel reservations, transportation services, trekking arrangements, and ticket booking services to help travelers explore the beauty of the Eastern Himalayas with complete peace of mind.
             </p>
             <p className="text-pt-muted text-sm leading-relaxed">
-              Today, our fleet spans sedans to Tempo Travellers, our service list covers airport transfers to full Himalayan tours, and our team is always one WhatsApp away — 24/7.
+              Today, our fleet spans hatchbacks, sedans, SUVs, and luxury Tempo Travellers, and our team is always one phone call or WhatsApp message away — ready to help you plan your next adventure.
             </p>
           </div>
         </div>

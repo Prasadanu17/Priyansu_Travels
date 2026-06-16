@@ -84,7 +84,7 @@ export default function Home() {
           <div>
             <div className="inline-flex items-center gap-2 bg-pt-gold/15 border border-pt-gold/35 rounded-full px-4 py-1.5 text-pt-gold-light text-xs tracking-widest uppercase mb-6">
               <MapPin size={12} />
-              West Bengal's Trusted Travel Partner
+              Sikkim's Registered Travel Agency
             </div>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] mb-5">
              Explore ,<br />
@@ -177,7 +177,7 @@ export default function Home() {
               Built on Trust,<br /><em className="text-pt-gold italic">Driven by Passion</em>
             </h2>
             <p className="text-pt-muted text-sm leading-relaxed mb-5">
-              Founded in Kolkata in 2016 with a single vehicle and an unbreakable commitment to honesty. Today, Priyansu Travels is West Bengal's trusted name for premium car rentals, curated tours, and corporate travel — serving 500+ happy clients across Eastern India.
+              At Priyansu Tours & Travels, we specialize in providing reliable, affordable, and hassle-free travel solutions across Sikkim, Darjeeling, Kalimpong, and Bhutan. Regd. No. 1624/DoT&CAV/E/24/TA. Whether you are planning a family vacation, honeymoon trip, adventure tour, or business travel, our experienced team ensures a comfortable and memorable journey from start to finish.
             </p>
             <p className="text-pt-muted text-sm leading-relaxed mb-6">
               We believe every journey deserves the same care as the first one. That's why our drivers are verified, our prices are transparent, and our support never sleeps.

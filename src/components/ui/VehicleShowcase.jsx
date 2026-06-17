@@ -69,64 +69,70 @@ export default function VehicleShowcase() {
                       .map((vehicle, idx) => (
                         <div
                           key={vehicle.id}
-                          className={`reveal reveal-delay-${idx % 3 + 1} group`}
+                          className={`reveal reveal-delay-${idx % 3 + 1} group h-full`}
                           style={{ animationDelay: `${idx * 50}ms` }}
                         >
-                          <div className="vehicle-card relative overflow-hidden rounded-[2.5rem] border border-white/20 bg-gradient-to-br from-white/15 to-white/5 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.1)] backdrop-blur-xl transition-all duration-500 hover:border-pt-gold/30 hover:shadow-[0_30px_80px_rgba(201,168,76,0.15)] hover:-translate-y-2">
-                            {/* Background gradient */}
-                            <div
-                              className={`absolute inset-0 bg-gradient-to-br ${vehicle.bgGradient} opacity-40 transition-opacity duration-500 group-hover:opacity-50`}
-                            />
-
-                            {/* Glow effect on hover */}
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(201,168,76,0.2),_transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                            {/* Content */}
-                            <div className="relative z-10 flex flex-col h-full">
+                          <div className="vehicle-card relative overflow-hidden rounded-[2.5rem] border border-white/20 bg-gradient-to-br from-white/15 to-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.1)] backdrop-blur-xl transition-all duration-500 hover:border-pt-gold/30 hover:shadow-[0_30px_80px_rgba(201,168,76,0.15)] hover:-translate-y-2 flex flex-col h-full">
+                            {/* Image container */}
+                            <div className="relative h-44 sm:h-48 overflow-hidden rounded-t-[2.5rem]">
+                              <img
+                                src={vehicle.image}
+                                alt={vehicle.name}
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                               {/* Vehicle Type Badge */}
-                              <div className="mb-4">
-                                <span className="inline-flex items-center rounded-full bg-pt-gold/20 px-3 py-1 text-xs font-semibold text-pt-gold border border-pt-gold/30">
+                              <div className="absolute top-4 left-4">
+                                <span className="inline-flex items-center rounded-full bg-pt-gold/90 px-3 py-1 text-[10px] font-semibold text-pt-deep border border-pt-gold/30 uppercase tracking-wider">
                                   {vehicle.type}
                                 </span>
                               </div>
+                            </div>
 
+                            {/* Content */}
+                            <div className="p-6 flex flex-col flex-1 relative z-10">
+                              {/* Background gradient overlay for glassmorphic effect */}
+                              <div
+                                className={`absolute inset-0 bg-gradient-to-br ${vehicle.bgGradient} opacity-10 transition-opacity duration-500 group-hover:opacity-20 rounded-b-[2.5rem] -z-10`}
+                              />
+                              
                               {/* Vehicle Name */}
-                              <h3 className="font-display text-2xl text-pt-deep font-bold mb-6 group-hover:text-pt-gold transition-colors duration-300">
+                              <h3 className="font-display text-xl text-pt-deep font-bold mb-4 group-hover:text-pt-gold transition-colors duration-300">
                                 {vehicle.name}
                               </h3>
 
                               {/* Details Grid */}
-                              <div className="space-y-3 mb-6 flex-1">
-                                <div className="flex items-center gap-3 text-sm text-pt-slate">
-                                  <span className="text-lg">👨‍✈️</span>
+                              <div className="space-y-2.5 mb-5 flex-1">
+                                <div className="flex items-center gap-3 text-xs text-pt-slate">
+                                  <span className="text-base">👨‍✈️</span>
                                   <span>{vehicle.driver ? 'Professional Driver Included' : 'Self-Drive Available'}</span>
                                 </div>
-                                <div className="flex items-center gap-3 text-sm text-pt-slate">
-                                  <span className="text-lg">👥</span>
+                                <div className="flex items-center gap-3 text-xs text-pt-slate">
+                                  <span className="text-base">👥</span>
                                   <span>{vehicle.seating} Seating Capacity</span>
                                 </div>
-                                <div className="flex items-center gap-3 text-sm text-pt-slate">
-                                  <span className="text-lg">💰</span>
+                                <div className="flex items-center gap-3 text-xs text-pt-slate">
+                                  <span className="text-base">💰</span>
                                   <span className="font-semibold text-pt-gold">Starting from ₹{vehicle.dailyRate.toLocaleString('en-IN')}/day</span>
                                 </div>
-                                <div className="flex items-center gap-3 text-sm text-pt-slate">
-                                  <span className="text-lg">📍</span>
+                                <div className="flex items-center gap-3 text-xs text-pt-slate">
+                                  <span className="text-base">📍</span>
                                   <span>{vehicle.idealFor.join(', ')}</span>
                                 </div>
                               </div>
 
                               {/* Rating */}
-                              <div className="mb-5 flex items-center gap-2">
+                              <div className="mb-4 flex items-center gap-2">
                                 <div className="flex items-center gap-1">
                                   {[...Array(5)].map((_, i) => (
                                     <Star
                                       key={i}
-                                      size={14}
+                                      size={12}
                                       className={i < Math.round(vehicle.rating) ? 'fill-pt-gold text-pt-gold' : 'text-pt-muted/30'}
                                     />
                                   ))}
                                 </div>
-                                <span className="text-xs font-semibold text-pt-deep">
+                                <span className="text-[11px] font-semibold text-pt-deep">
                                   {vehicle.rating} ({vehicle.reviews} reviews)
                                 </span>
                               </div>
@@ -134,7 +140,7 @@ export default function VehicleShowcase() {
                               {/* CTA Button */}
                               <Link
                                 to="/contact"
-                                className="btn-primary w-full inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pt-gold to-pt-gold-light px-4 py-3 text-sm font-semibold text-pt-deep shadow-[0_12px_30px_rgba(201,168,76,0.3)] transition-all duration-300 hover:shadow-[0_18px_50px_rgba(201,168,76,0.4)] hover:-translate-y-0.5"
+                                className="btn-primary w-full inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pt-gold to-pt-gold-light px-4 py-2.5 text-xs font-semibold text-pt-deep shadow-[0_12px_30px_rgba(201,168,76,0.2)] transition-all duration-300 hover:shadow-[0_18px_50px_rgba(201,168,76,0.35)] hover:-translate-y-0.5"
                               >
                                 Book Now
                               </Link>

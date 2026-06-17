@@ -1,3 +1,10 @@
+import gurudongmar_lake from '../assets/northSikkimPhoto/gurudongmar-lake.jpg';
+import tsomgo_lake from '../assets/eastSikkimPhoto/tsomgo-lake.jpg';
+import mg_marg from '../assets/eastSikkimPhoto/mg-marg.jpg';
+import ravangla_buddha_park from '../assets/southSikkimPhoto/ravangla-buddha-park.jpg';
+import baba_mandir from '../assets/eastSikkimPhoto/baba-mandir.png';
+import pelling from '../assets/westSikkimPhoto/Pelling.jpg';
+
 export const packages = [
   {
     id: 'north-sikkim-adventure',
@@ -11,6 +18,7 @@ export const packages = [
     highlights: ['Snow-covered landscapes', 'Scenic mountain views', 'Premium hotel stay', 'Guided sightseeing', 'Adventure experience'],
     includes: ['AC Transport', 'Hotel (6N)', 'Permits', 'Guide', 'Meals'],
     bgClass: 'from-[#1f3854] to-[#16324a]',
+    image: gurudongmar_lake,
     rating: 4.9,
     reviews: 142,
   },
@@ -26,6 +34,7 @@ export const packages = [
     highlights: ['Luxury stay', 'Romantic sightseeing', 'Private cab', 'Sunrise viewpoints', 'Perfect for couples'],
     includes: ['AC Transport', 'Hotel (4N)', 'Private Cab', 'Guide', 'Breakfast'],
     bgClass: 'from-[#5b3e7c] to-[#2b2f4b]',
+    image: tsomgo_lake,
     rating: 4.8,
     reviews: 98,
   },
@@ -41,6 +50,7 @@ export const packages = [
     highlights: ['Tea garden visit', 'Toy train experience', 'Himalayan views', 'Family-friendly tour', 'Local sightseeing'],
     includes: ['AC Transport', 'Hotel (5N)', 'Guide', 'Sightseeing', 'Breakfast'],
     bgClass: 'from-[#3e5a7c] to-[#20324a]',
+    image: mg_marg,
     rating: 4.7,
     reviews: 110,
   },
@@ -56,6 +66,7 @@ export const packages = [
     highlights: ['Waterfalls & monasteries', 'Snow destinations', 'Premium stays', 'Local culture', 'Full Sikkim exploration'],
     includes: ['AC Transport', 'Hotel (7N)', 'Guided Sightseeing', 'Meals', 'Permits'],
     bgClass: 'from-[#173548] to-[#0f2433]',
+    image: ravangla_buddha_park,
     rating: 5.0,
     reviews: 64,
   },
@@ -71,6 +82,7 @@ export const packages = [
     highlights: ['Budget-friendly package', 'Family sightseeing', 'Comfortable stay', 'Easy travel', 'Local market visit'],
     includes: ['AC Transport', 'Hotel (3N)', 'Guide', 'Sightseeing', 'Breakfast'],
     bgClass: 'from-[#3b5a41] to-[#1c3526]',
+    image: baba_mandir,
     rating: 4.6,
     reviews: 72,
   },
@@ -86,6 +98,7 @@ export const packages = [
     highlights: ['Luxury resort stay', 'Private sightseeing', 'Premium transport', 'Personalized experience', 'Himalayan scenic views'],
     includes: ['AC Transport', 'Luxury Hotel (5N)', 'Private Cab', 'Guide', 'Breakfast'],
     bgClass: 'from-[#3f375c] to-[#1d2136]',
+    image: pelling,
     rating: 5.0,
     reviews: 48,
   },

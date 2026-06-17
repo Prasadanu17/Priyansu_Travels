@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Target, Eye, ShieldCheck, Clock, HeartHandshake, TrendingUp } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import SectionHeader from '../components/ui/SectionHeader';
 import CTABanner from '../components/ui/CTABanner';
@@ -15,12 +15,12 @@ const timeline = [
 ];
 
 const values = [
-  { num: '01', title: 'Our Mission',  desc: 'To make premium travel accessible and stress-free for every family, professional, and traveller in Eastern India.' },
-  { num: '02', title: 'Our Vision',   desc: 'To become the most trusted regional travel brand in Sikkim — known for safety, punctuality, and heartfelt service.' },
-  { num: '03', title: 'Integrity',    desc: 'We never add hidden charges, never cut corners on safety, and never overpromise. Honest service, every time.' },
-  { num: '04', title: 'Punctuality',  desc: 'Your time is precious. We track flights, plan routes, and arrive early — so you never miss a moment.' },
-  { num: '05', title: 'Customer First', desc: 'Every decision we make starts with one question: is this best for our customer? The answer shapes everything.' },
-  { num: '06', title: 'Continuous Growth', desc: 'We reinvest in better vehicles, better training, and better technology so tomorrow\'s journey is always better than today\'s.' },
+  { num: '01', icon: Target, title: 'Our Mission',  desc: 'To make premium travel accessible and stress-free for every family, professional, and traveller in Eastern India.' },
+  { num: '02', icon: Eye, title: 'Our Vision',   desc: 'To become the most trusted regional travel brand in Sikkim — known for safety, punctuality, and heartfelt service.' },
+  { num: '03', icon: ShieldCheck, title: 'Integrity',    desc: 'We never add hidden charges, never cut corners on safety, and never overpromise. Honest service, every time.' },
+  { num: '04', icon: Clock, title: 'Punctuality',  desc: 'Your time is precious. We track flights, plan routes, and arrive early — so you never miss a moment.' },
+  { num: '05', icon: HeartHandshake, title: 'Customer First', desc: 'Every decision we make starts with one question: is this best for our customer? The answer shapes everything.' },
+  { num: '06', icon: TrendingUp, title: 'Continuous Growth', desc: 'We reinvest in better vehicles, better training, and better technology so tomorrow\'s journey is always better than today\'s.' },
 ];
 
 export default function About() {
@@ -92,11 +92,21 @@ export default function About() {
             <SectionHeader eyebrow="What We Stand For" title="Our Values" subtitle="The principles that guide every trip, every decision, every interaction." />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {values.map(({ num, title, desc }, i) => (
-              <div key={num} className={`reveal reveal-delay-${i % 3 + 1} card-base p-6`}>
-                <div className="font-display text-4xl text-pt-gold/20 leading-none mb-3">{num}</div>
-                <h3 className="font-display text-lg text-pt-deep mb-2">{title}</h3>
-                <p className="text-pt-muted text-xs leading-relaxed">{desc}</p>
+            {values.map(({ num, icon: Icon, title, desc }, i) => (
+              <div key={num} className={`reveal reveal-delay-${i % 3 + 1} group h-full`}>
+                <div className="card-base p-6 hover:border-pt-gold/45 hover:shadow-[0_15px_45px_rgba(201,168,76,0.09)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full relative overflow-hidden">
+                  {/* Hover background glow */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-pt-gold/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="font-display text-4xl text-pt-gold/20 leading-none transition-all duration-300 group-hover:scale-105 group-hover:text-pt-gold/35">{num}</div>
+                    <div className="w-10 h-10 rounded-xl bg-pt-gold/10 flex items-center justify-center text-pt-gold group-hover:bg-pt-gold group-hover:text-pt-deep transition-all duration-300">
+                      <Icon size={20} className="stroke-[1.75]" />
+                    </div>
+                  </div>
+                  <h3 className="font-display text-lg text-pt-deep mb-2.5 mt-4 group-hover:text-pt-gold transition-colors duration-300">{title}</h3>
+                  <p className="text-pt-muted text-xs leading-relaxed flex-1">{desc}</p>
+                </div>
               </div>
             ))}
           </div>

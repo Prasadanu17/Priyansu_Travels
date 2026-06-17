@@ -9,7 +9,7 @@ export const vehicles = [
     idealFor: ['Family Trips', 'Adventure Rides'],
     rating: 4.8,
     reviews: 156,
-    image: '/assets/vehicles/scorpio.jpg',
+    image: '/assets/vehicles/scorpio.png',
     bgGradient: 'from-[#1a4a5e] to-[#0d2a3d]',
   },
   {
@@ -22,7 +22,7 @@ export const vehicles = [
     idealFor: ['Family Trips', 'Corporate Travel'],
     rating: 4.9,
     reviews: 203,
-    image: '/assets/vehicles/innova.jpg',
+    image: '/assets/vehicles/innova.png',
     bgGradient: 'from-[#2a3a4a] to-[#1a2a3a]',
   },
   {
@@ -35,7 +35,7 @@ export const vehicles = [
     idealFor: ['Adventure Rides', 'Solo Travel'],
     rating: 4.7,
     reviews: 89,
-    image: '/assets/vehicles/enfield.jpg',
+    image: '/assets/vehicles/enfield.png',
     bgGradient: 'from-[#3b2a1a] to-[#2a1a0a]',
   },
   {
@@ -48,7 +48,7 @@ export const vehicles = [
     idealFor: ['Group Tours', 'Family Reunions'],
     rating: 4.8,
     reviews: 142,
-    image: '/assets/vehicles/tempo.jpg',
+    image: '/assets/vehicles/tempo.png',
     bgGradient: 'from-[#2a3a4a] to-[#1f2f3f]',
   },
   {
@@ -61,7 +61,7 @@ export const vehicles = [
     idealFor: ['City Travel', 'Corporate Travel'],
     rating: 4.6,
     reviews: 124,
-    image: '/assets/vehicles/swift.jpg',
+    image: '/assets/vehicles/swift.png',
     bgGradient: 'from-[#1a3a4a] to-[#0f2a3a]',
   },
   {
@@ -74,7 +74,7 @@ export const vehicles = [
     idealFor: ['Luxury Travel', 'Corporate Travel'],
     rating: 5.0,
     reviews: 178,
-    image: '/assets/vehicles/fortuner.jpg',
+    image: '/assets/vehicles/fortuner.png',
     bgGradient: 'from-[#2a1a3a] to-[#1a0a2a]',
   },
 ];

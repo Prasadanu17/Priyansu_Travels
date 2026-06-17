@@ -22,7 +22,7 @@ export const services = [
     desc: 'Local sightseeing tours in Gangtok, North, East, West, and South Sikkim with expert guides and comfortable transport.',
     features: ['Gangtok Local Sightseeing', 'North Sikkim', 'East Sikkim', 'West Sikkim', 'South Sikkim'],
     cta: 'Book Sightseeing',
-    image: '/assets/services/local-sightseeing.svg',
+    image: '/assets/services/local-sightseeing.jpg',
     color: 'from-[#1a334a] to-[#2d5a7a]',
   },
   {
@@ -44,7 +44,7 @@ export const services = [
     desc: 'Rent Royal Enfield, Himalayan and adventure bikes with riding gear included for thrilling mountain journeys.',
     features: ['Royal Enfield', 'Himalayan', 'Adventure Bikes', 'Riding Gear'],
     cta: 'Rent a Bike',
-    image: '/assets/services/bike-rentals.svg',
+    image: '/assets/services/bike-rentals.png',
     color: 'from-[#1b2a1b] to-[#3a5e3a]',
   },
   {
@@ -55,7 +55,7 @@ export const services = [
     desc: 'Book treks, camping, and rafting in Sikkim with permit support, safety gear, and expert guides.',
     features: ['Goechala Trek', 'Dzongri Trek', 'Sandakphu Trek', 'Camping', 'River Rafting'],
     cta: 'Book Adventure',
-    image: '/assets/services/trekking-adventure.svg',
+    image: '/assets/services/trekking-adventure.webp',
     color: 'from-[#2a1a3a] to-[#4a3a7a]',
   },
   {
@@ -66,7 +66,7 @@ export const services = [
     desc: 'Get help with train tickets, hotel booking, travel permits, and airport pickup to make your trip seamless.',
     features: ['Train Tickets', 'Hotel Booking', 'Permit Assistance', 'Airport Pickup'],
     cta: 'Plan Travel',
-    image: '/assets/services/train-booking.svg',
+    image: '/assets/services/train-booking.png',
     color: 'from-[#1a0d2a] to-[#3A1A5E]',
   },
 ];

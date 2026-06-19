@@ -7,8 +7,9 @@ import logo from '../../assets/logo.png';
 const navLinks = [
   { to: '/',             label: 'Home' },
   { to: '/about',        label: 'About' },
+  { to: '/accommodation', label: 'Accommodation' },
   { to: '/services',     label: 'Services' },
-  { to: '/travel',       label: 'Travel Guide' },
+  { to: '/travel',       label: 'Travel' },
   { to: '/contact',      label: 'Contact' },
 ];
 

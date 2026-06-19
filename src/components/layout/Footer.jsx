@@ -6,6 +6,7 @@ const footerLinks = {
   'Quick Links': [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
+    { to: '/accommodation', label: 'Accommodation' },
     { to: '/services', label: 'Services' },
     { to: '/travel', label: 'Travel Guide' },
     { to: '/contact', label: 'Contact' },

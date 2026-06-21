@@ -9,6 +9,8 @@ import Accommodation from './pages/Accommodation';
 import Services from './pages/Services';
 import Travel from './pages/Travel';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PriyansuPrivacy';
+import TermsOfService from './pages/TermsOfService';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,6 +32,8 @@ export default function App() {
           <Route path="/travel"       element={<Travel />} />
           <Route path="/travel/:slug" element={<Travel />} />
           <Route path="/contact"      element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
       </main>
       <Footer />

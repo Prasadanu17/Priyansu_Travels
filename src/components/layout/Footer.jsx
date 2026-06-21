@@ -99,11 +99,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between pt-5 gap-3">
-          <p className="text-[11px] text-white/30">© 2026 Priyansu Tours & Travels. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link to="#" className="text-[11px] text-white/30 hover:text-pt-gold transition-colors">Privacy Policy</Link>
-            <Link to="#" className="text-[11px] text-white/30 hover:text-pt-gold transition-colors">Terms of Service</Link>
+        <div className="flex flex-col md:flex-row items-center justify-between pt-5 gap-4 text-[11px] text-white/30">
+          <p>© 2026 Priyansu Tours & Travels. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5">
+            <Link to="/privacy-policy" className="hover:text-pt-gold transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-pt-gold transition-colors">Terms of Service</Link>
+            <span className="text-white/10 hidden sm:inline">|</span>
+            <span>Powered by <span className="text-white/45 font-medium">SH1ELD Tech</span></span>
+            <span className="text-white/10 hidden sm:inline">|</span>
+            <span className="flex items-center gap-1">Made with 💚 in Sikkim</span>
           </div>
         </div>
       </div>

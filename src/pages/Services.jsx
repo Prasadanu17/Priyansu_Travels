@@ -4,7 +4,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import SectionHeader from '../components/ui/SectionHeader';
 import ServiceCard from '../components/ui/ServiceCard';
 import CTABanner from '../components/ui/CTABanner';
-import ThreeDAnimation from '../components/ui/ThreeDAnimation';
+
 import { services } from '../data/services';
 
 const process = [
@@ -21,7 +21,7 @@ export default function Services() {
     <>
       {/* ── HERO ── */}
       <section className="bg-hero-gradient pt-24 pb-16 px-4 text-center relative overflow-hidden">
-        <ThreeDAnimation className="hidden lg:block absolute -right-10 top-16 w-64 h-64 opacity-80" />
+
         <div className="absolute inset-0 bg-dot-pattern bg-dot-sm pointer-events-none" />
         <div className="relative z-10 max-w-2xl mx-auto">
           <span className="section-eyebrow">Everything We Offer</span>

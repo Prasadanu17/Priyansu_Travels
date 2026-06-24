@@ -28,7 +28,7 @@
            hover:bg-pt-navy transition-all duration-200 inline-flex items-center gap-2;
   }
   .section-eyebrow {
-    @apply text-pt-gold text-xs tracking-widest uppercase font-medium mb-2 block;
+    @apply text-pt-gold text-sm sm:text-base tracking-widest uppercase font-medium mb-2 block;
   }
   .section-title {
     @apply font-display text-3xl leading-snug;
@@ -53,55 +53,133 @@
   .label-text {
     @apply block text-[10px] text-pt-muted uppercase tracking-wider mb-1.5 font-medium;
   }
-  .three-d-scene {
-    @apply relative overflow-hidden;
-    perspective: 1100px;
-  }
-  .three-d-cube {
-    position: relative;
+  .compass-scene {
+    @apply relative overflow-visible flex justify-center items-center;
+    perspective: 1200px;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
-    animation: cube-spin 12s linear infinite;
   }
-  .three-d-face {
+  .compass-wrapper {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    transform-style: preserve-3d;
+    transform: rotateX(55deg) rotateZ(-25deg);
+    animation: compass-float 8s ease-in-out infinite;
+  }
+  .compass-body {
     position: absolute;
     inset: 0;
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    box-shadow: 0 18px 40px rgba(13, 27, 42, 0.14);
-    border-radius: 1.75rem;
-    backdrop-filter: blur(6px);
-    transform-origin: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(27, 46, 63, 0.95), rgba(13, 27, 42, 0.95));
+    border: 4px solid #C9A84C;
+    box-shadow: 
+      inset 0 0 20px rgba(0,0,0,0.8),
+      0 10px 30px rgba(0,0,0,0.6),
+      0 20px 0 #8b7333,
+      0 20px 20px rgba(0,0,0,0.8);
+    transform-style: preserve-3d;
+  }
+  .compass-dial {
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #1b2e3f, #0d1b2a);
+    border: 2px solid rgba(201,168,76, 0.3);
+    transform: translateZ(2px);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
   }
-  .three-d-face.front  { transform: rotateY(0deg) translateZ(58px); background: linear-gradient(180deg, rgba(13, 27, 42, 0.95), rgba(27, 46, 63, 0.7)); }
-  .three-d-face.back   { transform: rotateY(180deg) translateZ(58px); background: linear-gradient(180deg, rgba(27, 46, 63, 0.95), rgba(13, 27, 42, 0.7)); }
-  .three-d-face.right  { transform: rotateY(90deg) translateZ(58px); background: linear-gradient(180deg, rgba(201, 168, 76, 0.95), rgba(237, 214, 138, 0.45)); }
-  .three-d-face.left   { transform: rotateY(-90deg) translateZ(58px); background: linear-gradient(180deg, rgba(27, 46, 63, 0.9), rgba(13, 27, 42, 0.65)); }
-  .three-d-face.top    { transform: rotateX(90deg) translateZ(58px); background: linear-gradient(180deg, rgba(13, 27, 42, 0.95), rgba(201, 168, 76, 0.25)); }
-  .three-d-face.bottom { transform: rotateX(-90deg) translateZ(58px); background: linear-gradient(180deg, rgba(27, 46, 63, 0.88), rgba(13, 27, 42, 0.55)); }
-  .three-d-face svg {
-    width: 34px;
-    height: 34px;
-    stroke-width: 1.5;
-  }
-  .three-d-badge {
-    @apply text-[10px] uppercase tracking-[0.3em] font-semibold bg-white/10 border border-white/10 rounded-full px-3 py-1;
-  }
-  .three-d-glow {
+  .compass-markers {
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    background: radial-gradient(circle at 50% 30%, rgba(201, 168, 76, 0.18), transparent 40%);
-    filter: blur(16px);
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+      from 0deg,
+      rgba(201,168,76,0.3) 0deg 2deg,
+      transparent 2deg 30deg
+    );
   }
-  @keyframes cube-spin {
-    0%   { transform: rotateX(18deg) rotateY(0deg); }
-    50%  { transform: rotateX(22deg) rotateY(180deg); }
-    100% { transform: rotateX(18deg) rotateY(360deg); }
+  .compass-direction {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    color: #C9A84C;
+    text-shadow: 0 0 5px rgba(201,168,76,0.4);
+    font-size: 1.25rem;
+  }
+  .compass-n { top: 10px; left: 50%; transform: translateX(-50%); color: #ef4444; }
+  .compass-s { bottom: 10px; left: 50%; transform: translateX(-50%); }
+  .compass-e { right: 15px; top: 50%; transform: translateY(-50%); }
+  .compass-w { left: 15px; top: 50%; transform: translateY(-50%); }
+  
+  .compass-needle {
+    position: absolute;
+    width: 14px;
+    height: 70%;
+    top: 15%;
+    left: calc(50% - 7px);
+    transform-style: preserve-3d;
+    transform-origin: center;
+    animation: needle-spin 6s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    z-index: 10;
+  }
+  .needle-north {
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 60px solid #ef4444;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4));
+  }
+  .needle-south {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 60px solid #e5e7eb;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4));
+  }
+  .compass-center-pin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fcd34d, #b45309);
+    transform: translate(-50%, -50%) translateZ(6px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    z-index: 20;
+  }
+  .compass-glass {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 100%);
+    transform: translateZ(12px);
+    backdrop-filter: blur(1px);
+  }
+  
+  @keyframes compass-float {
+    0%, 100% { transform: rotateX(55deg) rotateZ(-25deg) translateY(0); }
+    50% { transform: rotateX(62deg) rotateZ(-20deg) translateY(-15px); }
+  }
+  
+  @keyframes needle-spin {
+    0% { transform: translateZ(6px) rotate(0deg); }
+    20% { transform: translateZ(6px) rotate(12deg); }
+    40% { transform: translateZ(6px) rotate(-8deg); }
+    60% { transform: translateZ(6px) rotate(35deg); }
+    80% { transform: translateZ(6px) rotate(20deg); }
+    100% { transform: translateZ(6px) rotate(0deg); }
   }
   .nav-dot-pattern {
     background-image: radial-gradient(circle, rgba(201,168,76,0.12) 1px, transparent 1px);

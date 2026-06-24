@@ -3,7 +3,7 @@ import { ArrowRight, CheckCircle2, Target, Eye, ShieldCheck, Clock, HeartHandsha
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import SectionHeader from '../components/ui/SectionHeader';
 import CTABanner from '../components/ui/CTABanner';
-import ThreeDAnimation from '../components/ui/ThreeDAnimation';
+
 import { stats } from '../data/testimonials';
 
 const timeline = [
@@ -30,7 +30,7 @@ export default function About() {
     <>
       {/* ── PAGE HERO ── */}
       <section className="bg-pt-deep pt-24 pb-16 px-4 relative overflow-hidden">
-        <ThreeDAnimation className="hidden lg:block absolute right-8 top-24 w-56 h-56 opacity-90" />
+
         <div className="absolute inset-0 bg-dot-pattern bg-dot-sm opacity-100 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>

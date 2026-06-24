@@ -8,7 +8,7 @@ import ServiceCard from '../components/ui/ServiceCard';
 import PackageCard from '../components/ui/PackageCard';
 import TestimonialCard from '../components/ui/TestimonialCard';
 import CTABanner from '../components/ui/CTABanner';
-import ThreeDAnimation from '../components/ui/ThreeDAnimation';
+
 import ExperienceSikkimSection from '../components/ui/ExperienceSikkimSection';
 import VehicleShowcase from '../components/ui/VehicleShowcase';
 import { services } from '../data/services';
@@ -64,7 +64,7 @@ export default function Home() {
       <section
         className="min-h-[92vh] flex items-center relative overflow-hidden pt-16"
         style={{
-          backgroundImage: "linear-gradient(160deg, rgba(13,27,42,0.88) 0%, rgba(27,46,63,0.72) 50%, rgba(26,48,64,0.88) 100%), url('/assets/hero.png')",
+          backgroundImage: "linear-gradient(to right, rgba(13,27,42,0.95) 0%, rgba(27,46,63,0.8) 45%, transparent 70%), url('/assets/hero.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -79,17 +79,21 @@ export default function Home() {
           <div className="absolute inset-32 rounded-full border border-pt-gold" />
         </div>
 
-        <ThreeDAnimation className="hidden lg:block absolute right-8 top-20 w-56 h-56 opacity-90" />
+
         <div className="relative z-10 max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center md:-translate-x-[10%]">
           <div>
             <div className="inline-flex items-center gap-2 bg-pt-gold/15 border border-pt-gold/35 rounded-full px-4 py-1.5 text-pt-gold-light text-xs tracking-widest uppercase mb-6">
               <MapPin size={12} />
               Sikkim's Registered Travel Agency
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] mb-5">
-             Explore ,<br />
-              <em className="text-pt-gold italic"> The Hidden Paradise of the Himalayas</em>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] mb-2">
+              Welcome to,<br />
+              <em className="text-pt-gold italic">The Priyansu Travels</em>
             </h1>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.3] mb-6 border-l-4 border-pt-gold pl-5 py-1">
+              <span className="block text-white text-sm sm:text-base uppercase tracking-[0.25em] mb-2 font-semibold">Explore,</span>
+              <em className="italic font-light text-pt-gold">The Hidden Paradise of the Himalayas</em>
+            </h2>
             <p className="text-white/60 text-base leading-relaxed mb-8 font-light max-w-full sm:max-w-md">
              Luxury Tours • Adventure • Local Experiences • Trusted Travel Partner in Sikkim
             </p>
@@ -116,9 +120,8 @@ export default function Home() {
                     <p className="text-white/50 text-[10px] uppercase tracking-wider mb-3">{item.meta}</p>
                     <h3 className="font-display text-2xl text-white mb-2">{item.title}</h3>
                     <p className="text-pt-gold text-sm italic mb-4">{item.subtitle}</p>
-                    <div className="flex flex-col sm:flex-row sm:justify-between gap-3 text-sm text-white/60">
+                    <div className="flex flex-col sm:flex-row gap-3 text-sm text-white/60">
                       <span>{item.duration}</span>
-                      <span className="text-pt-gold font-semibold">{item.price}</span>
                     </div>
                   </div>
                 ) : null
@@ -127,7 +130,7 @@ export default function Home() {
           </div>
 
           {/* Hero center — departure card slider */}
-          <div className="hidden md:flex absolute left-[58%] top-[55%] z-20 -translate-x-1/2 -translate-y-1/2">
+          <div className="hidden md:flex absolute left-[52%] top-[55%] z-20 -translate-x-1/2 -translate-y-1/2">
             <div className="relative w-full max-w-[360px]" style={{ perspective: '1200px' }}>
               {departureItems.map((item, index) => {
                 const offset = index - activeSlide;
@@ -151,9 +154,8 @@ export default function Home() {
                     <p className="text-white/50 text-[10px] uppercase tracking-wider mb-3">{item.meta}</p>
                     <h3 className="font-display text-3xl text-white mb-2">{item.title}</h3>
                     <p className="text-pt-gold text-sm italic mb-5">{item.subtitle}</p>
-                    <div className="flex justify-between text-sm text-white/60 mb-5">
+                    <div className="flex text-sm text-white/60 mb-5">
                       <span>{item.duration}</span>
-                      <span className="text-pt-gold font-semibold">{item.price}</span>
                     </div>
                   </div>
                 );

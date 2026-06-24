@@ -111,10 +111,7 @@ export default function VehicleShowcase() {
                                   <span className="text-base">👥</span>
                                   <span>{vehicle.seating} Seating Capacity</span>
                                 </div>
-                                <div className="flex items-center gap-3 text-xs text-pt-slate">
-                                  <span className="text-base">💰</span>
-                                  <span className="font-semibold text-pt-gold">Starting from ₹{vehicle.dailyRate.toLocaleString('en-IN')}/day</span>
-                                </div>
+
                                 <div className="flex items-center gap-3 text-xs text-pt-slate">
                                   <span className="text-base">📍</span>
                                   <span>{vehicle.idealFor.join(', ')}</span>

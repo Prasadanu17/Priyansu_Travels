@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle2, AlertCircle } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import ThreeDAnimation from '../components/ui/ThreeDAnimation';
+
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
@@ -26,7 +26,7 @@ const contactDetails = [
 ];
 
 const initialForm = {
-  name: '', phone: '', email: '', service: '',
+  name: '', phone: '', email: '', service: [],
   travelDate: '', passengers: '', message: '',
 };
 
@@ -34,13 +34,26 @@ export default function Contact() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [isServiceOpen, setIsServiceOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
   useScrollReveal();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsServiceOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const validate = () => {
     const e = {};
     if (!form.name.trim())    e.name    = 'Name is required';
     if (!form.phone.trim() || !/^\+?[\d\s-]{8,15}$/.test(form.phone)) e.phone = 'Enter a valid phone number';
-    if (!form.service)        e.service = 'Please select a service';
+    if (!form.service || form.service.length === 0) e.service = 'Please select at least one service';
     if (form.email && !/\S+@\S+\.\S+/.test(form.email)) e.email = 'Enter a valid email';
     return e;
   };
@@ -49,6 +62,15 @@ export default function Contact() {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
+  };
+
+  const toggleService = (s) => {
+    setForm((prev) => {
+      const current = Array.isArray(prev.service) ? prev.service : [];
+      const updated = current.includes(s) ? current.filter((item) => item !== s) : [...current, s];
+      return { ...prev, service: updated };
+    });
+    if (errors.service) setErrors((prev) => ({ ...prev, service: '' }));
   };
 
   const handleSubmit = async (e) => {
@@ -60,10 +82,16 @@ export default function Contact() {
     try {
       const formData = new FormData();
       formData.append('access_key',   WEB3FORMS_KEY);
-      formData.append('subject',      `New Enquiry from ${form.name} — ${form.service}`);
+      formData.append('subject',      `New Enquiry from ${form.name} — ${Array.isArray(form.service) ? form.service.join(', ') : form.service}`);
       formData.append('redirect',     'false');
       formData.append('botcheck',     '');
-      Object.entries(form).forEach(([k, v]) => formData.append(k, v));
+      Object.entries(form).forEach(([k, v]) => {
+        if (k === 'service') {
+          formData.append(k, Array.isArray(v) ? v.join(', ') : v);
+        } else {
+          formData.append(k, v);
+        }
+      });
 
       const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
       const data = await res.json();
@@ -78,7 +106,7 @@ export default function Contact() {
     <>
       {/* ── HERO ── */}
       <section className="bg-pt-deep pt-24 pb-12 px-4 text-center relative overflow-hidden">
-        <ThreeDAnimation className="hidden lg:block absolute right-6 top-14 w-56 h-56 opacity-75" />
+
         <div className="absolute inset-0 bg-dot-pattern bg-dot-sm pointer-events-none" />
         <div className="relative z-10 max-w-xl mx-auto">
           <span className="section-eyebrow">Get In Touch</span>
@@ -192,12 +220,32 @@ export default function Contact() {
                   {errors.email && <p className="text-red-500 text-[10px] mt-1">{errors.email}</p>}
                 </div>
 
-                <div>
+                <div ref={dropdownRef} className="relative">
                   <label className="label-text">Service Required *</label>
-                  <select name="service" value={form.service} onChange={handleChange} className={`input-field ${errors.service ? 'border-red-400' : ''}`}>
-                    <option value="">Select a service...</option>
-                    {serviceOptions.map((s) => <option key={s} value={s}>{s}</option>)}
-                  </select>
+                  <div
+                    className={`input-field flex items-center justify-between cursor-pointer ${errors.service ? 'border-red-400' : ''}`}
+                    onClick={() => setIsServiceOpen(!isServiceOpen)}
+                  >
+                    <span className={form.service.length > 0 ? 'text-pt-deep' : 'text-pt-muted/60'} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', paddingRight: '8px' }}>
+                      {form.service.length > 0 ? form.service.join(', ') : 'Select services...'}
+                    </span>
+                    <ChevronDown size={16} className={`text-pt-muted transition-transform ${isServiceOpen ? 'rotate-180' : ''} shrink-0`} />
+                  </div>
+                  {isServiceOpen && (
+                    <div className="absolute z-20 w-full mt-1 bg-white border border-black/10 rounded-lg shadow-xl max-h-60 overflow-y-auto p-2 top-full left-0">
+                      {serviceOptions.map((s) => (
+                        <label key={s} className="flex items-center gap-3 p-2 hover:bg-pt-cream rounded-md cursor-pointer text-sm text-pt-deep transition-colors">
+                          <input
+                            type="checkbox"
+                            checked={Array.isArray(form.service) && form.service.includes(s)}
+                            onChange={() => toggleService(s)}
+                            className="w-4 h-4 text-pt-gold bg-white border-gray-300 rounded focus:ring-pt-gold focus:ring-2 accent-pt-gold cursor-pointer shrink-0"
+                          />
+                          {s}
+                        </label>
+                      ))}
+                    </div>
+                  )}
                   {errors.service && <p className="text-red-500 text-[10px] mt-1">{errors.service}</p>}
                 </div>
 

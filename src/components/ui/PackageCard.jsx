@@ -46,16 +46,7 @@ export default function PackageCard({ pkg }) {
           ))}
         </div>
 
-        <div className="flex items-center justify-between">
-          <div>
-            <span className="text-[10px] text-pt-muted">From</span>
-            <div className="flex items-baseline gap-1">
-              <span className="font-display text-xl text-pt-deep font-bold">
-                ₹{price.toLocaleString('en-IN')}
-              </span>
-              <span className="text-[10px] text-pt-muted">/person</span>
-            </div>
-          </div>
+        <div className="flex items-center justify-end">
           <Link
             to="/contact"
             className="flex items-center gap-1.5 text-xs text-pt-gold font-medium hover:gap-3 transition-all duration-200"

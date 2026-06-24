@@ -103,11 +103,11 @@ export default function Home() {
               <Link to="/services" className="btn-outline px-6 py-3">Our Services</Link>
             </div>
             {/* Stats */}
-            <div className="flex flex-wrap gap-7 pt-6 border-t border-white/10">
+            <div className="flex gap-7 pt-6 border-t border-white/10 overflow-x-auto hide-scrollbar pb-2 snap-x snap-mandatory">
               {stats.map(({ value, label }) => (
-                <div key={label} className="min-w-[120px]">
+                <div key={label} className="min-w-[120px] shrink-0 snap-start">
                   <div className="font-display text-2xl text-pt-gold font-bold">{value}</div>
-                  <div className="text-[10px] text-white/45 uppercase tracking-wider mt-0.5">{label}</div>
+                  <div className="text-[10px] text-white/45 uppercase tracking-wider mt-0.5 whitespace-nowrap">{label}</div>
                 </div>
               ))}
             </div>

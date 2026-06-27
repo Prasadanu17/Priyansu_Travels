@@ -16,10 +16,10 @@ import { packages } from '../data/packages';
 import { testimonials, stats } from '../data/testimonials';
 
 const whyItems = [
-  { icon: Shield,     title: 'Safe & Verified Drivers',  desc: 'All drivers are police-verified with 3+ years experience and a clean record.' },
-  { icon: Clock,      title: 'Always On Time',            desc: 'We track flights & trains — no waiting, no stress, no delays, ever.' },
-  { icon: CreditCard, title: 'Transparent Pricing',       desc: 'No hidden charges. What you see is exactly what you pay — guaranteed.' },
-  { icon: Headphones, title: '24/7 Customer Support',     desc: 'Reach us anytime via call, WhatsApp, or email. We are always here for you.' },
+  { icon: Shield, title: 'Safe & Verified Drivers', desc: 'All drivers are police-verified with 3+ years experience and a clean record.' },
+  { icon: Clock, title: 'Always On Time', desc: 'We track flights & trains — no waiting, no stress, no delays, ever.' },
+  { icon: CreditCard, title: 'Transparent Pricing', desc: 'No hidden charges. What you see is exactly what you pay — guaranteed.' },
+  { icon: Headphones, title: '24/7 Customer Support', desc: 'Reach us anytime via call, WhatsApp, or email. We are always here for you.' },
 ];
 
 const departureItems = [
@@ -62,11 +62,11 @@ export default function Home() {
     <>
       {/* ── HERO ── */}
       <section
-        className="min-h-[92vh] flex items-center relative overflow-hidden pt-16"
+        className="min-h-[92vh] flex items-center relative overflow-hidden pt-24 pb-16"
         style={{
-          backgroundImage: "linear-gradient(to right, rgba(13,27,42,0.95) 0%, rgba(27,46,63,0.8) 45%, transparent 70%), url('/assets/hero.png')",
+          backgroundImage: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.65) 100%), url('/assets/hero.png')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 60%',
           backgroundRepeat: 'no-repeat',
         }}
       >
@@ -80,88 +80,109 @@ export default function Home() {
         </div>
 
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center md:-translate-x-[10%]">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-pt-gold/15 border border-pt-gold/35 rounded-full px-4 py-1.5 text-pt-gold-light text-xs tracking-widest uppercase mb-6">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 py-8 w-full flex flex-col gap-10">
+
+          {/* Welcome Header - Centered */}
+          <div className="text-center max-w-3xl mx-auto w-full flex flex-col items-center">
+            <div className="inline-flex items-center gap-2 bg-pt-gold/15 border border-pt-gold/35 rounded-full px-4 py-1.5 text-pt-gold-light text-xs tracking-widest uppercase mb-4 mx-auto">
               <MapPin size={12} />
               Sikkim's Registered Travel Agency
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] mb-2">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">
               Welcome to,<br />
               <em className="text-pt-gold italic">The Priyansu Travels</em>
             </h1>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.3] mb-6 border-l-4 border-pt-gold pl-5 py-1">
-              <span className="block text-white text-sm sm:text-base uppercase tracking-[0.25em] mb-2 font-semibold">Explore,</span>
-              <em className="italic font-light text-pt-gold">The Hidden Paradise of the Himalayas</em>
-            </h2>
-            <p className="text-white/60 text-base leading-relaxed mb-8 font-light max-w-full sm:max-w-md">
-             Luxury Tours • Adventure • Local Experiences • Trusted Travel Partner in Sikkim
-            </p>
-            <div className="flex flex-wrap gap-3 mb-10">
-              <Link to="/contact" className="btn-primary px-6 py-3">Book Now <ArrowRight size={15} /></Link>
-              <Link to="/travel" className="btn-outline px-6 py-3">Travel Guide</Link>
-              <Link to="/services" className="btn-outline px-6 py-3">Our Services</Link>
-            </div>
-            {/* Stats */}
-            <div className="flex gap-7 pt-6 border-t border-white/10 overflow-x-auto hide-scrollbar pb-2 snap-x snap-mandatory">
-              {stats.map(({ value, label }) => (
-                <div key={label} className="min-w-[120px] shrink-0 snap-start">
-                  <div className="font-display text-2xl text-pt-gold font-bold">{value}</div>
-                  <div className="text-[10px] text-white/45 uppercase tracking-wider mt-0.5 whitespace-nowrap">{label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile hero slider */}
-            <div className="md:hidden mt-10">
-              {departureItems.map((item, index) => (
-                index === activeSlide ? (
-                  <div key={item.title} className="rounded-[28px] border border-white/15 bg-slate-950/80 backdrop-blur-2xl p-5 text-white shadow-[0_20px_60px_rgba(0,0,0,0.2)] transition-all duration-500 ease-out">
-                    <p className="text-white/50 text-[10px] uppercase tracking-wider mb-3">{item.meta}</p>
-                    <h3 className="font-display text-2xl text-white mb-2">{item.title}</h3>
-                    <p className="text-pt-gold text-sm italic mb-4">{item.subtitle}</p>
-                    <div className="flex flex-col sm:flex-row gap-3 text-sm text-white/60">
-                      <span>{item.duration}</span>
-                    </div>
-                  </div>
-                ) : null
-              ))}
-            </div>
           </div>
 
-          {/* Hero center — departure card slider */}
-          <div className="hidden md:flex absolute left-[52%] top-[55%] z-20 -translate-x-1/2 -translate-y-1/2">
-            <div className="relative w-full max-w-[360px]" style={{ perspective: '1200px' }}>
-              {departureItems.map((item, index) => {
-                const offset = index - activeSlide;
-                const absOffset = Math.abs(offset);
-                const translateX = offset * 40;
-                const translateY = absOffset * 18;
-                const rotateY = offset * -10;
-                const scale = index === activeSlide ? 1 : 0.94;
-                const zIndex = 10 - absOffset;
+          {/* Grid Layout - Left: Explore, Right: Featured Tour */}
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center w-full mt-2">
 
-                return (
-                  <div
-                    key={item.title}
-                    className="absolute left-1/2 top-0 w-[320px] -translate-x-1/2 rounded-[28px] border border-white/15 bg-slate-950/70 backdrop-blur-2xl p-6 text-white shadow-[0_30px_80px_rgba(0,0,0,0.3)] transition-all duration-700 ease-out"
-                    style={{
-                      transform: `translate3d(${translateX}px, ${translateY}px, ${-absOffset * 40}px) rotateY(${rotateY}deg) scale(${scale})`,
-                      zIndex,
-                      opacity: index === activeSlide ? 1 : 0.75,
-                    }}
-                  >
-                    <p className="text-white/50 text-[10px] uppercase tracking-wider mb-3">{item.meta}</p>
-                    <h3 className="font-display text-3xl text-white mb-2">{item.title}</h3>
-                    <p className="text-pt-gold text-sm italic mb-5">{item.subtitle}</p>
-                    <div className="flex text-sm text-white/60 mb-5">
-                      <span>{item.duration}</span>
+            {/* Left Column: Explore Things */}
+            <div className="flex flex-col items-start text-left">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.3] mb-6 border-l-4 border-pt-gold pl-5 py-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+                <span className="block text-white text-sm sm:text-base uppercase tracking-[0.25em] mb-2 font-semibold">Explore,</span>
+                <em className="italic font-light text-pt-gold">The Hidden Paradise of the Himalayas</em>
+              </h2>
+              <p className="text-white/60 text-base leading-relaxed mb-8 font-light max-w-md">
+                Luxury Tours • Adventure • Local Experiences • Trusted Travel Partner in Sikkim
+              </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <Link to="/contact" className="btn-primary px-6 py-3">Book Now <ArrowRight size={15} /></Link>
+                <Link to="/travel" className="btn-outline px-6 py-3">Travel Guide</Link>
+                <Link to="/services" className="btn-outline px-6 py-3">Our Services</Link>
+              </div>
+
+              {/* Mobile hero slider */}
+              <div className="md:hidden mt-6 w-full">
+                {departureItems.map((item, index) => (
+                  index === activeSlide ? (
+                    <div key={item.title} className="rounded-[28px] border border-white/15 bg-slate-950/80 backdrop-blur-2xl p-5 text-white shadow-[0_20px_60px_rgba(0,0,0,0.2)] transition-all duration-500 ease-out">
+                      <p className="text-white/50 text-[10px] uppercase tracking-wider mb-3">{item.meta}</p>
+                      <h3 className="font-display text-2xl text-white mb-2">{item.title}</h3>
+                      <p className="text-pt-gold text-sm italic mb-4">{item.subtitle}</p>
+                      <div className="flex flex-col sm:flex-row gap-3 text-sm text-white/60">
+                        <span>{item.duration}</span>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  ) : null
+                ))}
+              </div>
             </div>
+
+            {/* Right Column: Featured Tour Card Slider */}
+            <div className="hidden md:flex justify-center items-center h-[360px] relative w-full -translate-y-8">
+              <div className="relative w-full max-w-[320px]" style={{ perspective: '1200px' }}>
+                {departureItems.map((item, index) => {
+                  const offset = index - activeSlide;
+                  const absOffset = Math.abs(offset);
+                  const translateX = offset * 40;
+                  const translateY = absOffset * 15;
+                  const rotateY = offset * -8;
+                  const scale = index === activeSlide ? 1 : 0.94;
+                  const zIndex = 10 - absOffset;
+
+                  return (
+                    <div
+                      key={item.title}
+                      className="absolute left-1/2 top-1/2 -translate-y-1/2 w-[300px] -translate-x-1/2 rounded-[28px] border border-white/15 bg-slate-950/70 backdrop-blur-2xl p-6 text-white shadow-[0_30px_80px_rgba(0,0,0,0.3)] transition-all duration-700 ease-out"
+                      style={{
+                        transform: `translate3d(${translateX}px, ${translateY}px, ${-absOffset * 40}px) rotateY(${rotateY}deg) scale(${scale})`,
+                        zIndex,
+                        opacity: index === activeSlide ? 1 : 0.75,
+                      }}
+                    >
+                      <p className="text-white/50 text-[10px] uppercase tracking-wider mb-3">{item.meta}</p>
+                      <h3 className="font-display text-2xl text-white mb-2">{item.title}</h3>
+                      <p className="text-pt-gold text-xs italic mb-4">{item.subtitle}</p>
+                      <div className="flex text-xs text-white/60">
+                        <span>{item.duration}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
+
+        </div>
+      </section>
+
+      {/* ── STATS BAR ── */}
+      <section className="bg-pt-navy py-10 px-4 border-b border-white/5 relative overflow-hidden">
+        {/* Subtle background dot pattern */}
+        <div className="absolute inset-0 bg-dot-pattern bg-dot-xs opacity-20 pointer-events-none" />
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 relative z-10">
+          {stats.map(({ value, label }) => (
+            <div key={label} className="text-center flex flex-col items-center justify-center">
+              <div className="font-display text-3xl sm:text-4xl md:text-5xl text-pt-gold font-bold mb-2 tracking-tight">
+                {value}
+              </div>
+              <div className="text-[10px] sm:text-xs text-white/60 uppercase tracking-widest font-sans font-medium">
+                {label}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -51,10 +51,68 @@ export default function Contact() {
 
   const validate = () => {
     const e = {};
-    if (!form.name.trim())    e.name    = 'Name is required';
-    if (!form.phone.trim() || !/^\+?[\d\s-]{8,15}$/.test(form.phone)) e.phone = 'Enter a valid phone number';
-    if (!form.service || form.service.length === 0) e.service = 'Please select at least one service';
-    if (form.email && !/\S+@\S+\.\S+/.test(form.email)) e.email = 'Enter a valid email';
+    
+    // Name validation
+    const trimmedName = form.name.trim();
+    if (!trimmedName) {
+      e.name = 'Name is required';
+    } else if (trimmedName.length < 2) {
+      e.name = 'Name must be at least 2 characters';
+    } else if (trimmedName.length > 50) {
+      e.name = 'Name cannot exceed 50 characters';
+    } else if (!/^[a-zA-Z\s'-]+$/.test(trimmedName)) {
+      e.name = 'Name must contain only letters, spaces, hyphens, or apostrophes';
+    }
+
+    // Phone validation
+    const trimmedPhone = form.phone.trim();
+    if (!trimmedPhone) {
+      e.phone = 'Phone number is required';
+    } else {
+      const digitsOnly = trimmedPhone.replace(/[\s\-+]/g, '');
+      if (!/^\+?[\d\s-]{10,15}$/.test(trimmedPhone) || digitsOnly.length < 10) {
+        e.phone = 'Enter a valid phone number (at least 10 digits)';
+      }
+    }
+
+    // Email validation (optional)
+    if (form.email) {
+      const trimmedEmail = form.email.trim();
+      if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(trimmedEmail)) {
+        e.email = 'Enter a valid email address';
+      }
+    }
+
+    // Service validation (multiple selection)
+    if (!form.service || form.service.length === 0) {
+      e.service = 'Please select at least one service';
+    }
+
+    // Travel Date validation (optional)
+    if (form.travelDate) {
+      const selectedDate = new Date(form.travelDate);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // set to beginning of today
+      if (selectedDate < today) {
+        e.travelDate = 'Travel date cannot be in the past';
+      }
+    }
+
+    // Passengers validation (optional)
+    if (form.passengers) {
+      const p = parseInt(form.passengers, 10);
+      if (isNaN(p) || p <= 0) {
+        e.passengers = 'Number of passengers must be at least 1';
+      } else if (p > 100) {
+        e.passengers = 'For groups larger than 100, please contact us directly';
+      }
+    }
+
+    // Message validation (optional)
+    if (form.message && form.message.length > 2000) {
+      e.message = 'Message cannot exceed 2000 characters';
+    }
+
     return e;
   };
 
@@ -252,17 +310,20 @@ export default function Contact() {
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="label-text">Travel Date</label>
-                    <input name="travelDate" value={form.travelDate} onChange={handleChange} type="date" className="input-field" />
+                    <input name="travelDate" value={form.travelDate} onChange={handleChange} type="date" className={`input-field ${errors.travelDate ? 'border-red-400' : ''}`} />
+                    {errors.travelDate && <p className="text-red-500 text-[10px] mt-1">{errors.travelDate}</p>}
                   </div>
                   <div>
                     <label className="label-text">Passengers</label>
-                    <input name="passengers" value={form.passengers} onChange={handleChange} type="number" min="1" className="input-field" placeholder="2" />
+                    <input name="passengers" value={form.passengers} onChange={handleChange} type="number" min="1" className={`input-field ${errors.passengers ? 'border-red-400' : ''}`} placeholder="2" />
+                    {errors.passengers && <p className="text-red-500 text-[10px] mt-1">{errors.passengers}</p>}
                   </div>
                 </div>
 
                 <div>
                   <label className="label-text">Your Message</label>
-                  <textarea name="message" value={form.message} onChange={handleChange} rows={3} className="input-field resize-none" placeholder="Tell us your travel requirements, preferred vehicle type, special needs..." />
+                  <textarea name="message" value={form.message} onChange={handleChange} rows={3} className={`input-field resize-none ${errors.message ? 'border-red-400' : ''}`} placeholder="Tell us your travel requirements, preferred vehicle type, special needs..." />
+                  {errors.message && <p className="text-red-500 text-[10px] mt-1">{errors.message}</p>}
                 </div>
 
                 <button
